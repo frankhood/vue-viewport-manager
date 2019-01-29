@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Vue Bootstrapper | Development page</title>
+  <script type="text/javascript" src="/vue-viewport-manager.min.js"></script></head>
+  <body>
+    <div id="app-root">
+      <h1>Viewport info</h1>
+      <dl>
+        <dt>Width</dt>
+        <dd>{{ $viewportWidth }}</dd>
+        <dt>Height</dt>
+        <dd>{{ $viewportHeight }}</dd>
+      </dl>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuex@3.0.1/dist/vuex.min.js"></script>
+    <script>
+      let store = new Vuex.Store({})
+      Vue.use(Vuex)
+      Vue.use(VueViewportManager, {store})
+      new Vue({
+        el: '#app-root',
+        store
+      })
+    </script>
+  </body>
+</html>
