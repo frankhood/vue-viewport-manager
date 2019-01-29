@@ -1,4 +1,4 @@
-# Vue bootstrapper
+# Vue viewport manager
 
 [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
 
@@ -7,12 +7,12 @@
 ## Installation
 
 ```bash
-npm install --save vue-bootstrapper
+npm install --save https://github.com/frankhood/vue-viewport-manager.git#master
 ```
 
 ## Usage
 
-Import `vue-bootstrapper` in your JS entry point and install it via `Vue.use()`
+Import `vue-viewport-manager` in your JS entry point and install it via `Vue.use()`
 
 ```js
 import Vue from 'vue'
