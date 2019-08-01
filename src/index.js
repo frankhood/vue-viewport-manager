@@ -42,16 +42,20 @@ const VueViewportManager = {
         }
       },
       mounted () {
-        if (!this.$parent) {
-          window.addEventListener('scroll', () => {
-            this.$store.commit('vueViewportManager/SET_SCROLL_POSITION')
-          })
+        try {
+          if (!this.$parent && this.$options.name !== 'portalTarget') {
+            window.addEventListener('scroll', () => {
+              this.$store.commit('vueViewportManager/SET_SCROLL_POSITION')
+            })
 
-          window.addEventListener('resize', () => {
+            window.addEventListener('resize', () => {
+              this.$store.commit('vueViewportManager/SET_VIEWPORT_SIZE')
+            })
+
             this.$store.commit('vueViewportManager/SET_VIEWPORT_SIZE')
-          })
-
-          this.$store.commit('vueViewportManager/SET_VIEWPORT_SIZE')
+          }
+        } catch (e) {
+          console.log('error: ', this)
         }
       }
     })
