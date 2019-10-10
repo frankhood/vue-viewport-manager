@@ -29,7 +29,18 @@ const VueViewportManager = {
         }
       },
       computed: {
-        ...mapState('vueViewportManager', ['$viewportWidth', '$viewportHeight', '$currentScrollPosition', '$lastScrollPosition']),
+        $viewportWidth () {
+          return this.$store.state['vueViewportManager'].$viewportWidth
+        },
+        $viewportHeight () {
+          return this.$store.state['vueViewportManager'].$viewportHeight
+        },
+        $currentScrollPosition () {
+          return this.$store.state['vueViewportManager'].$currentScrollPosition
+        },
+        $lastScrollPosition () {
+          return this.$store.state['vueViewportManager'].$lastScrollPosition
+        },
         ...mapGetters('vueViewportManager', ['$scrollDirection', '$vhUnit', '$vwUnit']),
         isMobileDevice () {
           return /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) ||
