@@ -7,7 +7,7 @@
 ## Installation
 
 ```bash
-npm install --save https://github.com/frankhood/vue-viewport-manager.git#master
+npm install --save vue-viewport-manager
 ```
 
 ## Usage
