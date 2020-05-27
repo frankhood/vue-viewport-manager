@@ -67,25 +67,22 @@ const VueViewportManager = {
             window.dispatchEvent(resizeEvent)
           }
         }
-      },
-      mounted () {
-        try {
-          if (!this.$parent && this.$options.name !== 'portalTarget') {
-            window.addEventListener('scroll', () => {
-              this.$store.commit('vueViewportManager/SET_SCROLL_POSITION')
-            })
-
-            window.addEventListener('resize', () => {
-              this.$store.commit('vueViewportManager/SET_VIEWPORT_SIZE')
-            })
-
-            this.$store.commit('vueViewportManager/SET_VIEWPORT_SIZE')
-          }
-        } catch (e) {
-          console.log('error: ', this)
-        }
       }
     })
+
+    try {
+      window.addEventListener('scroll', () => {
+        options.store.commit('vueViewportManager/SET_SCROLL_POSITION')
+      })
+
+      window.addEventListener('resize', () => {
+        options.store.commit('vueViewportManager/SET_VIEWPORT_SIZE')
+      })
+
+      options.store.commit('vueViewportManager/SET_VIEWPORT_SIZE')
+    } catch (e) {
+      console.log('error: ', this)
+    }
   }
 }
 
