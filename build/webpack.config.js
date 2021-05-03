@@ -1,14 +1,14 @@
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // Webpack plugins
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
-const NODE_ENV = process.env.NODE_ENV
+const NODE_ENV = process.env.NODE_ENV;
 
 // Development environment
-const devEnv = () => (NODE_ENV === 'development')
+const devEnv = () => (NODE_ENV === 'development');
 
 const webpackConfig = {
   devtool: 'source-map',
@@ -54,13 +54,13 @@ const webpackConfig = {
       { // Javascript
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
-        use: [{ loader: 'babel-loader' }]
+        use: [{loader: 'babel-loader'}]
       }
     ]
   },
   devServer: {
     hot: true
   }
-}
+};
 
-module.exports = webpackConfig
+module.exports = webpackConfig;
